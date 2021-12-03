@@ -4,7 +4,20 @@
 #include "GetSystemInformation.h"
 #include <iostream>
 #define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+//#include <windows.h>
+
+/** 
+* ue_4.27 Update
+* engine\source\runtime\core\public\HAL/Platform.h(1085): note: see previous definition of 'TEXT'
+* 
+* #include "Runtime/Core/Public/Windows/AllowWindowsPlatformTypes.h"
+* #include "Runtime/Core/Public/Windows/MinWindows.h"
+* #include "Runtime/Core/Public/Windows/HideWindowsPlatformTypes.h"
+*/
+#include "Runtime/Core/Public/Windows/AllowWindowsPlatformTypes.h"
+#include "Runtime/Core/Public/Windows/MinWindows.h"
+#include "Runtime/Core/Public/Windows/HideWindowsPlatformTypes.h"
+
 #include <stdio.h>
 #include <cstdlib>
 #include <dxgi.h>
@@ -12,9 +25,6 @@
 #include <intrin.h>
 #pragma comment (lib, "dxgi.lib")
 #pragma warning(disable : 4996)
-
-
-
 
 
 //VideocardName
@@ -42,8 +52,6 @@ FString UGetSystemInformationBPLibrary::GetVideocardName(int number)
     }
     return String;
 }
-
-
 
 //////////
 // 
